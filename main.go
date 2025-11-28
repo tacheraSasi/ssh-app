@@ -47,13 +47,11 @@ Press q to quit
 `, m.counter)
 }
 
-// You need a handler that returns the initial model for each new SSH session
 func teaHandler(s ssh.Session) (tea.Model, []tea.ProgramOption) {
 	return model{}, []tea.ProgramOption{tea.WithAltScreen()}
 }
 
 func main() {
-	// 1. Create the Wish SSH Server
 	s, err := wish.NewServer(
 		wish.WithAddress(":2222"),
 		wish.WithHostKeyPath(".ssh/id_ed25519"),
@@ -65,7 +63,7 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	// 2. Handle graceful shutdowns
+	
 	done := make(chan os.Signal, 1)
 	signal.Notify(done, os.Interrupt, syscall.SIGINT, syscall.SIGTERM)
 	log.Println("SSH server started on localhost:2222")
