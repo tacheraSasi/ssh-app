@@ -38,7 +38,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 func (m model) View() string {
 	return fmt.Sprintf(`
-SSH TUI Demo
+Hey there, I am Tach.
 
 Press up or down to change the counter
 Counter: %d
