@@ -18,6 +18,7 @@ import (
 type model struct {
 	counter int
 }
+var logger = log.Println
 
 func (m model) Init() tea.Cmd { return nil }
 
