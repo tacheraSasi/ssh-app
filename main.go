@@ -67,7 +67,7 @@ func main() {
 	
 	done := make(chan os.Signal, 1)
 	signal.Notify(done, os.Interrupt, syscall.SIGINT, syscall.SIGTERM)
-	log.Println("SSH server started on localhost:2222")
+	logger("SSH server started on localhost:2222")
 
 	go func() {
 		if err = s.ListenAndServe(); err != nil && err != ssh.ErrServerClosed {
